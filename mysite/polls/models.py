@@ -10,7 +10,8 @@ class Question(models.Model):
 
     def __str__(self):
         """display Question object instance attributes"""
-        return  "question_text: " + self.question_text
+        return  "question_text: " + self.question_text \
+                + "\npub_date:" + self.pub_date.__str__()
 
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
